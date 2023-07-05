@@ -12,7 +12,7 @@ async createStudent(createStudentDto: CreateStudentDto): Promise<IStudent> {
    return newStudent.save();
 }
 async updateStudent(studentId: string, updateStudentDto: UpdateStudentDto): Promise<IStudent> {
-    const existingStudent = await        this.studentModel.findByIdAndUpdate(studentId, updateStudentDto, { new: true });
+    const existingStudent = await this.studentModel.findByIdAndUpdate(studentId, updateStudentDto, { new: true });
    if (!existingStudent) {
      throw new NotFoundException(`Student #${studentId} not found`);
    }
@@ -26,7 +26,7 @@ async getAllStudents(): Promise<IStudent[]> {
     return studentData;
 }
 async getStudent(studentId: string): Promise<IStudent> {
-   const existingStudent = await     this.studentModel.findById(studentId).exec();
+   const existingStudent = await this.studentModel.findById(studentId).exec();
    if (!existingStudent) {
     throw new NotFoundException(`Student #${studentId} not found`);
    }
